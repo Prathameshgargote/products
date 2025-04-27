@@ -1,0 +1,55 @@
+.image {
+  height: 300px;
+  width: 200px;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.prod_title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
+  max-height: 3em;
+}
+
+.card-info {
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+.hover-card:hover .button-hover{
+  opacity: 1;
+  pointer-events: auto;
+  background-color: rgb(19, 19, 19,0);
+  color: rgb(19, 19, 19,0);
+  border-radius: 10px;
+}
+
+.button-hover {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 5%;
+  right: 5%;
+  gap: 10px;
+  transition: 0.5s, ease-in-out;
+  opacity: 0;
+}
+
+
+
+button{
+  border: none;
+  background: none;
+}
+
+i {
+  font-size: 24px;
+  transition: color 0.3s ease;
+}

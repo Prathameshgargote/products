@@ -1,0 +1,59 @@
+.Image{
+    width: 500px;
+    height: 500px;
+margin-bottom: 15px;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+}
+
+.smImg{
+    height: 100px;
+    width: 100px;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.img{
+    // margin: 2px;
+    // margin-top: 5px;
+    display: inline-block ;
+    margin-left: 7px;
+    width: 110px;
+    gap: 5px;
+    padding: 5px;
+}
+
+.dscription{
+    ul{
+        margin: 0;
+        padding: 8px;
+    }
+}
+
+.card{
+    width: 100%;
+    .card-button{
+        width: 70%;
+     
+    }
+}
+.button{
+    cursor: pointer;
+}
+
+.button-group{
+    display: inline-block;
+}
+
+// .card-button{
+//     width: 90%;
+// }
+
+.star{
+   color: rgb(252, 181, 0);
+}

@@ -1,0 +1,166 @@
+<div class="row mt-4">
+  <div class="col-md-10 offset-md-1 mb-4">
+    <button routerLink="/products" mat-icon-button>
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+    Back
+  </div>
+  <div class="col-md-4">
+    <div class="Image">
+      <img [src]="selectedImg" [alt]="productInfo.title" />
+    </div>
+    <div class="col-3 img" *ngFor="let SmImg of prodImgArr.slice(1, 5)">
+      <div class="">
+        <div class="card">
+          <div class="smImg" (click)="onSmImg(SmImg)">
+            <img [src]="SmImg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <p class="text-info mt-4">
+      {{ productInfo.category }} | {{ productInfo.subcategory }}
+    </p>
+    <div class="prod-title">
+      <h2>{{ productInfo.title }}</h2>
+    </div>
+    <div class="rating_details">
+      <ul
+        class="rating-info d-flex justify-content-between"
+        style="list-style: none"
+      >
+        <li class="star">
+          <ng-container *ngFor="let star of [1,2,3,4,5]">
+            <mat-icon *ngIf="productInfo.rating>=star">star</mat-icon>
+            <mat-icon *ngIf="productInfo.rating>=star-0.5 && productInfo.rating<star">star_half</mat-icon>
+            <mat-icon *ngIf="productInfo.rating<star-0.5">star_border</mat-icon>
+          </ng-container>
+        </li>
+        <li>Review({{ productInfo.reviews_count }})</li>
+        <li class="text-muted">|</li>
+        <li>Sold:123</li>
+        <li class="text-muted">|</li>
+        <li>
+          <a href="">View Shop</a>
+        </li>
+      </ul>
+    </div>
+    <hr />
+    <h1 class="text-danger">
+      <b>{{ productInfo.total_price }}</b>
+    </h1>
+
+    <div class="sprcification">
+      <ng-container *ngIf="productInfo.product_specifications; else OnSpecific">
+        <ul>
+          <li 
+            class="d-flex"
+            style="font-size: 15px"
+            *ngFor="let spec of productInfo.product_specifications"
+          >
+            <p class="mr-2">
+              <b>{{ spec.specification_name }}</b>
+            </p>
+            :<P class="text-right">{{ spec.specification_value }}</P>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #OnSpecific>
+        <p class="alert alert-info alert-sm">Specifiction is not Available</p>
+      </ng-template>
+    </div>
+    <hr />
+    <div class="dscription">
+      <h2 class="mb-0">About This Item</h2>
+      <ng-container *ngIf="productInfo.product_description; else NoDescription">
+        <ul class="mt-0">
+          <li
+            class="m-2"
+            style="font-size: 15px"
+            *ngFor="let val of productInfo.product_description"
+          >
+            {{ val }}
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #NoDescription>
+        <p class="alert alert-info alert-sm">Not Description is Available</p>
+      </ng-template>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card p-4">
+      <h2 class="text-danger">{{ productInfo.total_price }}</h2>
+      <div class="freeship mt-3 d-flex">
+        <mat-icon class="mr-2">local_shipping </mat-icon>
+        <span>Free Shipping</span>
+      </div>
+      <div class="shipping_to mt-3 d-flex">
+        <span>Shipping To :</span>
+        <select style="border-style: none">
+          <option value="office">Office</option>
+          <option value="office">home</option>
+        </select>
+      </div>
+
+      <div class="color mt-3" *ngIf="productInfo.category === 'Mobile'">
+        <span>Color:</span>
+        <select class="form-control ml-4" style="width: 80%">
+          <option value="Red">Red</option>
+          <option value="Green">Green</option>
+          <option value="Balck">Black</option>
+        </select>
+      </div>
+
+      <div class="quantity d-flex mt-3">
+        <span>Quantity :</span>
+        <mat-icon (click)="onDescres()" class="button">remove</mat-icon>
+        <span class="text-danger ml-3">{{ quantity }}</span>
+        <mat-icon (click)="onIncres()" class="button ml-3">add</mat-icon>
+      </div>
+
+      <div class="button-group text-center mt-3">
+        <button mat-raised-button color="accent" class="btn-block card-button">
+          Add to cart <mat-icon>shopping_cart</mat-icon>
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          style="background-color: #333e45"
+          class="btn-block card-button"
+        >
+          Buy Now
+        </button>
+      </div>
+
+      <div class="detail-info mt-3">
+        <p>Detail:</p>
+        <ng-container *ngIf="productInfo.return_policy; else OnPolicy">
+          <div class="return_polity">
+            <span>Return policy:</span>
+            <p>{{ productInfo.return_policy }}</p>
+          </div>
+        </ng-container>
+        <ng-template #OnPolicy>
+          <p class="alert alert-info alert-sm">
+            Not Return Policy is Availbale
+          </p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <mat-tab-group>
+      <mat-tab label="Description">
+        <ul>
+          <li class="mt-2" *ngFor="let decp of productInfo.product_description">
+            {{ decp }}
+          </li>
+        </ul>
+      </mat-tab>
+      <mat-tab label="Product Info"> <p class="p-3">{{productInfo.product_details}}</p> </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

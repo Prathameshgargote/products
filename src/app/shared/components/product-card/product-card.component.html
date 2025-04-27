@@ -1,0 +1,65 @@
+<div class="hover-card">
+  <div class="card-info" [routerLink]="prodObj._id">
+    <div class="card mt-2">
+      <div class="image">
+        <img [src]="prodObj.images" alt="" />
+      </div>
+    </div>
+    <p>{{ prodObj.category }}</p>
+    <h3 class="prod_title text-info">{{ prodObj.title }}</h3>
+
+    <div class="price">
+      <p class="text-muted" style="font-size: 20px; font-weight: 800">
+        {{ prodObj.total_price }}
+      </p>
+    </div>
+  </div>
+
+  <div class="button-hover">
+    <button
+      matTooltip="Add to card"
+      matTooltipPosition="left"
+      mat-mini-fab
+      color="basic"
+      aria-label="Example icon button with a plus one icon"
+    >
+      <mat-icon>shopping_bag</mat-icon>
+    </button>
+
+    <button
+      matTooltip="visibility"
+      matTooltipPosition="left"
+      [routerLink]="prodObj._id"
+      mat-mini-fab
+      color="basic"
+      aria-label="Example icon button with a plus one icon"
+    >
+      <mat-icon>visibility</mat-icon>
+    </button>
+
+    <button
+      matTooltip="Like"
+      matTooltipPosition="left"
+      (click)="toggleLike()"
+      mat-mini-fab
+      color="basic"
+      aria-label="Example icon button with a plus one icon"
+    >
+      <mat-icon
+        color="white"
+        [ngClass]="liked ? 'bi-heart-fill text-danger' : 'bi-heart'"
+        >favorite</mat-icon
+      >
+    </button>
+
+    <button
+      matTooltip="Shuffle"
+      matTooltipPosition="left"
+      mat-mini-fab
+      color="basic"
+      aria-label="Example icon button with a plus one icon"
+    >
+      <mat-icon>shuffle</mat-icon>
+    </button>
+  </div>
+</div>
