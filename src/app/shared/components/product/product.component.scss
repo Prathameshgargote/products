@@ -1,5 +1,5 @@
 .Image{
-    width: 500px;
+    
     height: 500px;
 margin-bottom: 15px;
     img{
@@ -11,7 +11,7 @@ margin-bottom: 15px;
 
 .smImg{
     height: 100px;
-    width: 100px;
+  
     img{
         width: 100%;
         height: 100%;
@@ -36,11 +36,12 @@ margin-bottom: 15px;
 }
 
 .card{
+    cursor: pointer;
     width: 100%;
     .card-button{
         width: 70%;
-     
     }
+    
 }
 .button{
     cursor: pointer;

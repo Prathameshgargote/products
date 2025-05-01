@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  BaseUrl:`http://localhost:3000`
+  BaseUrl: `https://ecom-backend-omega-six.vercel.app`,
+  // BaseUrl:`http://localhost:3000`
 };
 
 /*

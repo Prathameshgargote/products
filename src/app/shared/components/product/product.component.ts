@@ -37,7 +37,7 @@ export class ProductComponent implements OnInit {
   }
 
   onDescres() {
-  if(this.quantity<1){
+  if(this.quantity>1){
     this.quantity--;
   }
   }
